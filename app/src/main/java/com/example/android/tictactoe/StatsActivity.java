@@ -47,7 +47,7 @@ public class StatsActivity extends AppCompatActivity {
     }
 
     public void resetStats(){
-        
+
 
     }
 }
