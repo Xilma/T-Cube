@@ -1,6 +1,7 @@
 package com.example.android.tictactoe;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -42,11 +43,35 @@ public class MainMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Navigate to Stations Fragment
-                Fragment chooseBoard = new ChooseBoardFragment();
+                Fragment chooseOption = new ChooseOptionFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.menu_options, chooseBoard);
+                transaction.replace(R.id.menu_options, chooseOption);
                 transaction.addToBackStack(null);
                 transaction.commit();
+            }
+        });
+
+        stats.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent stats = new Intent(getActivity(), StatsActivity.class);
+                startActivity(stats);
+                getActivity().finish();
+            }
+        });
+
+        options.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent options = new Intent(getActivity(), OptionsActivity.class);
+                startActivity(options);
+                getActivity().finish();
+            }
+        });
+
+        help.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent help = new Intent(getActivity(), HelpActivity.class);
+                startActivity(help);
+                getActivity().finish();
             }
         });
 

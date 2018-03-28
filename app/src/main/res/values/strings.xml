@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TicTacToe</string>
     <string name="app_title">Tic-Tac-Toe</string>
+
     <!--Main menu -->
     <string name="play">Play</string>
     <string name="stats">Stats</string>
@@ -14,6 +15,29 @@
     <string name="computer">Computer</string>
     <string name="human">Human</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Navigation-->
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+
+    <!--Stats-->
+    <string name="high_score">High Score: </string>
+    <string name="games_played">Games Played: </string>
+    <string name="play_time">Playtime: </string>
+    <string name="games_won">Games Won: </string>
+    <string name="games_lost">Games Lost: </string>
+
+    <!--Reset option-->
+    <string name="r_high_score">High Score: 0</string>
+    <string name="r_games_played">Games Played: 0</string>
+    <string name="r_playtime">Playtime: 00:00:00</string>
+    <string name="r_games_won">Games Won: 0</string>
+    <string name="r_games_lost">Games Lost: 0</string>
+
+    <!--Game Actions-->
+    <string name="pause">Pause</string>
+    <string name="reset">Reset</string>
+    <string name="menu">Menu</string>
+    <string name="play_more">Play More</string>
+
 </resources>
