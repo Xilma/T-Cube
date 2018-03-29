@@ -21,7 +21,9 @@
         </activity>
         <activity android:name=".HelpActivity" />
         <activity android:name=".StatsActivity" />
-        <activity android:name=".OptionsActivity"/>
+        <activity android:name=".OptionsActivity" />
+        <activity android:name=".ThreeBoardActivity" />
+        <activity android:name=".FiveBoardActivity"></activity>
     </application>
 
 </manifest>
