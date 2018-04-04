@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class ThreeBoardActivity extends AppCompatActivity {
 
     private TextView back;
+    private View decorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +25,10 @@ public class ThreeBoardActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        decorView = getWindow().getDecorView();
+        // Hide the status bar.
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
     }
 }

@@ -8,6 +8,7 @@
     tools:context=".ThreeBoardActivity">
 
     <LinearLayout
+        android:id="@+id/nav_three"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -31,6 +32,99 @@
                 android:clickable="true"/>
         </RelativeLayout>
     </LinearLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nav_three"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="80dp"
+        android:columnCount="3"
+        android:padding="20dp"
+        android:rowCount="3"
+        android:useDefaultMargins="true">
+
+        <!--First Row-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:src="@drawable/letter_o_three" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:paddingLeft="20dp"
+            android:src="@drawable/letter_x_three" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_row="0"
+            android:paddingLeft="20dp"
+            android:src="@drawable/letter_o_three" />
+
+        <!--Second Row-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:paddingTop="20dp"
+            android:src="@drawable/letter_o_three" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:src="@drawable/letter_x_three" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_row="1"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:src="@drawable/letter_o_three" />
+
+        <!--Third row-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:paddingTop="20dp"
+            android:src="@drawable/letter_o_three" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:src="@drawable/letter_x_three" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_row="2"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:src="@drawable/letter_o_three" />
+
+
+    </GridLayout>
 
     <Button
         android:id="@+id/pause"

@@ -13,6 +13,7 @@ public class StatsActivity extends AppCompatActivity {
     private TextView back_button, high_score, games_played, playtime;
     private TextView games_won_three, games_lost_three, games_won_five, games_lost_five;
     private Button reset_stats;
+    private View decorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,11 @@ public class StatsActivity extends AppCompatActivity {
                 resetStats();
             }
         });
+
+        decorView = getWindow().getDecorView();
+        // Hide the status bar.
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
     }
 
     public void resetStats(){
