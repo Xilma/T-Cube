@@ -39,6 +39,8 @@
     <string name="reset">Reset</string>
     <string name="menu">Menu</string>
     <string name="play_more">Play More</string>
+    <string name="letter_o">O</string>
+    <string name="letter_x">X</string>
 
     <!--Help-->
     <string name="pageOne">Help 1/4</string>
