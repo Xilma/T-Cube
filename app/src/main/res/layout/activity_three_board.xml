@@ -59,7 +59,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textSize="75sp"
-                android:onClick="gameLogic"/>
+                />
 
             <Button
                 android:id="@+id/r0c1"
@@ -72,7 +72,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textSize="75sp"
-                android:onClick="gameLogic"/>
+                />
 
             <Button
                 android:id="@+id/r0c2"
@@ -85,7 +85,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textSize="75sp"
-                android:onClick="gameLogic"/>
+                />
 
         </LinearLayout>
 
@@ -107,7 +107,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textSize="75sp"
-                android:onClick="gameLogic"/>
+                />
 
             <Button
                 android:id="@+id/r1c1"
@@ -120,7 +120,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textSize="75sp"
-                android:onClick="gameLogic"/>
+                />
 
             <Button
                 android:id="@+id/r1c2"
@@ -133,7 +133,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textSize="75sp"
-                android:onClick="gameLogic"/>
+                />
 
         </LinearLayout>
 
@@ -155,7 +155,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textSize="75sp"
-                android:onClick="gameLogic"/>
+                />
 
             <Button
                 android:id="@+id/r2c1"
@@ -168,7 +168,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textSize="75sp"
-                android:onClick="gameLogic"/>
+                />
 
             <Button
                 android:id="@+id/r2c2"
@@ -180,8 +180,7 @@
                 android:textColor="@color/text"
                 android:textStyle="bold"
                 android:textAllCaps="true"
-                android:textSize="75sp"
-                android:onClick="gameLogic"/>
+                android:textSize="75sp" />
 
         </LinearLayout>
 
