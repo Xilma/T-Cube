@@ -48,6 +48,7 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/r1c1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -59,6 +60,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r1c2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -70,6 +72,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r1c3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -81,6 +84,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r1c4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -92,70 +96,7 @@
                 android:textSize="50sp"/>
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@color/board"
-                android:textColor="@color/text"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="50sp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            android:layout_weight="1">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@color/board"
-                android:textColor="@color/text"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="50sp"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@color/board"
-                android:textColor="@color/text"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="50sp"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@color/board"
-                android:textColor="@color/text"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="50sp"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@color/board"
-                android:textColor="@color/text"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="50sp"/>
-
-            <Button
+                android:id="@+id/r1c5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -176,6 +117,7 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/r2c1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -187,6 +129,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r2c2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -198,6 +141,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r2c3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -209,6 +153,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r2c4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -220,6 +165,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r2c5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -240,6 +186,7 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/r3c1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -251,6 +198,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r3c2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -262,6 +210,76 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r3c3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@color/board"
+                android:textColor="@color/text"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textSize="50sp"/>
+
+            <Button
+                android:id="@+id/r3c4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@color/board"
+                android:textColor="@color/text"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textSize="50sp"/>
+
+            <Button
+                android:id="@+id/r3c5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@color/board"
+                android:textColor="@color/text"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textSize="50sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/r4c1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@color/board"
+                android:textColor="@color/text"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textSize="50sp"/>
+
+            <Button
+                android:id="@+id/r4c2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@color/board"
+                android:textColor="@color/text"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textSize="50sp"/>
+
+            <Button
+                android:id="@+id/r4c3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -274,6 +292,7 @@
             
 
             <Button
+                android:id="@+id/r4c4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -285,6 +304,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r4c5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -305,6 +325,7 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/r5c1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -316,6 +337,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r5c2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -327,6 +349,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r5c3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -338,6 +361,7 @@
                 android:textSize="50sp"/>
             
             <Button
+                android:id="@+id/r5c4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -349,6 +373,7 @@
                 android:textSize="50sp"/>
 
             <Button
+                android:id="@+id/r5c5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -395,6 +420,7 @@
         android:text="@string/reset"
         android:textColor="@color/text"
         android:textStyle="bold"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorAccent"
+        android:onClick="resetGameFive"/>
 
 </RelativeLayout>

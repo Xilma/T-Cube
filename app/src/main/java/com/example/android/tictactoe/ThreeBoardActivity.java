@@ -21,7 +21,7 @@ public class ThreeBoardActivity extends AppCompatActivity{
     private int player1Points;
     private int computerPoints;
     private TextView score;
-    private int i, j, k = 0;
+    private int i, j = 0;
     AI ai;
 
     @Override
