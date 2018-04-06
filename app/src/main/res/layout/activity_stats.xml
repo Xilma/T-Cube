@@ -43,20 +43,7 @@
         android:layout_marginTop="20dp">
 
         <TextView
-            android:id="@+id/high_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:text="@string/high_score"
-            android:textColor="@color/textPrimary"
-            android:layout_marginBottom="20dp" />
-
-        <TextView
             android:id="@+id/games_played"
-            android:layout_below="@id/high_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -66,18 +53,6 @@
             android:textColor="@color/textPrimary"
             android:layout_marginBottom="20dp" />
 
-        <TextView
-            android:id="@+id/playtime"
-            android:layout_below="@id/games_played"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="bold"
-            android:text="@string/play_time"
-            android:textColor="@color/textPrimary"
-            android:layout_marginBottom="20dp" />
-        
     </RelativeLayout>
     
     <LinearLayout
@@ -204,6 +179,7 @@
         android:text="@string/reset"
         android:textColor="@color/text"
         android:textStyle="bold"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorAccent"
+        android:onClick="resetStats"/>
 
 </RelativeLayout>
