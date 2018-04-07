@@ -1,5 +1,7 @@
 package com.example.android.tictactoe;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +18,7 @@ public class ThreeBoardActivity extends AppCompatActivity{
     private View decorView;
     private Button [][] b;
     private int [][] c;
-    private boolean player1Turn = true;
+    private boolean playerToken;
     private int roundCount;
     private int player1Points;
     private int computerPoints;
@@ -44,8 +46,33 @@ public class ThreeBoardActivity extends AppCompatActivity{
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
-        setBoard();
+        chooseToken();
     }
+
+    public void chooseToken(){
+        AlertDialog.Builder alertDialogBuilder = new
+                AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(R.string.message);
+        alertDialogBuilder.setPositiveButton(R.string.letter_o,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        playerToken = false;
+                        setBoard();
+                    }
+                });
+        alertDialogBuilder.setNegativeButton(R.string.letter_x,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        playerToken = true;
+                        setBoard();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
     //Reset the board
     public void resetGame(View view){
         for (int i = 0; i < 3; i++){
@@ -114,7 +141,11 @@ public class ThreeBoardActivity extends AppCompatActivity{
         public void onClick(View view) {
             if (b[x][y].isEnabled()) {
                 b[x][y].setEnabled(false);
-                b[x][y].setText(R.string.letter_o);
+                if(playerToken == false){
+                    b[x][y].setText(R.string.letter_o);}
+                if(playerToken == true){
+                    b[x][y].setText(R.string.letter_x);
+                }
                 c[x][y] = 0;
 
                 if (!checkBoard()) {
@@ -185,7 +216,11 @@ public class ThreeBoardActivity extends AppCompatActivity{
 
         private void markSquare(int x, int y) {
             b[x][y].setEnabled(false);
-            b[x][y].setText(R.string.letter_x);
+            if(playerToken == false){
+                b[x][y].setText(R.string.letter_x);}
+            if(playerToken == true){
+                b[x][y].setText(R.string.letter_o);
+            }
             c[x][y] = 1;
             checkBoard();
         }

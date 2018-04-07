@@ -42,10 +42,10 @@ public class MainMenuFragment extends Fragment {
         play.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                //Navigate to Stations Fragment
-                Fragment chooseOption = new ChooseOptionFragment();
+                //Navigate to ChooseBoard Fragment
+                Fragment chooseBoard = new ChooseBoardFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.menu_options, chooseOption);
+                transaction.replace(R.id.menu_options, chooseBoard);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

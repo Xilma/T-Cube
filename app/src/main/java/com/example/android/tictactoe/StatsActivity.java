@@ -65,11 +65,6 @@ public class StatsActivity extends AppCompatActivity {
         String gw = "Games Won: ";
         String gl = "Games Lost: ";
         String gd = "Games Draw: ";
-
-        games_played.setText(gp);
-        games_won_three.setText(gw);
-        games_lost_three.setText(gl);
-        games_draw_three.setText(gd);
     }
 
 }

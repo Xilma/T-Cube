@@ -1,5 +1,7 @@
 package com.example.android.tictactoe;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +18,7 @@ public class FiveBoardActivity extends AppCompatActivity {
     private View decorView;
     private Button[][] b;
     private int [][] c;
-    private boolean player1Turn = true;
+    private boolean playerToken;
     private int roundCount;
     private int player1Points;
     private int computerPoints;
@@ -44,7 +46,7 @@ public class FiveBoardActivity extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
-        setBoard();
+        chooseToken();
     }
     //Reset the board
     public void resetGameFive(View view){
@@ -57,6 +59,30 @@ public class FiveBoardActivity extends AppCompatActivity {
             }
         }
         setBoard();
+    }
+
+    public void chooseToken(){
+        AlertDialog.Builder alertDialogBuilder = new
+                AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(R.string.message);
+        alertDialogBuilder.setPositiveButton(R.string.letter_o,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        playerToken = false;
+                        setBoard();
+                    }
+                });
+        alertDialogBuilder.setNegativeButton(R.string.letter_x,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        playerToken = true;
+                        setBoard();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
     // Set up the game board.
@@ -130,8 +156,11 @@ public class FiveBoardActivity extends AppCompatActivity {
         public void onClick(View view) {
             if (b[x][y].isEnabled()) {
                 b[x][y].setEnabled(false);
-                b[x][y].setText(R.string.letter_o);
-                c[x][y] = 0;
+                if(playerToken == false){
+                    b[x][y].setText(R.string.letter_o);}
+                if(playerToken == true){
+                    b[x][y].setText(R.string.letter_x);
+                }c[x][y] = 0;
 
                 if (!checkBoard()) {
                     ai.takeTurn();
@@ -262,7 +291,11 @@ public class FiveBoardActivity extends AppCompatActivity {
 
         private void markSquare(int x, int y) {
             b[x][y].setEnabled(false);
-            b[x][y].setText(R.string.letter_x);
+            if(playerToken == false){
+                b[x][y].setText(R.string.letter_x);}
+            if(playerToken == true){
+                b[x][y].setText(R.string.letter_o);
+            }
             c[x][y] = 1;
             checkBoard();
         }
@@ -287,18 +320,18 @@ public class FiveBoardActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Game over. You win!", Toast.LENGTH_LONG).show();
             gameOver = true;
             disableButtons();
-        } else if ((c[1][1] == 1 && c[2][2] == 1 && c[3][3] == 1 && c[4][4] == 1 && c[5][5] == 0)
-                || (c[1][5] == 1 && c[2][4] == 1 && c[3][3] == 1 && c[4][2] == 1 && c[5][1] == 0)
-                || (c[1][1] == 1 && c[1][2] == 1 && c[1][3] == 1 && c[1][4] == 1 && c[1][5] == 0)
-                || (c[2][1] == 1 && c[2][2] == 1 && c[2][3] == 1 && c[2][4] == 1 && c[2][5] == 0)
-                || (c[3][1] == 1 && c[3][2] == 1 && c[3][3] == 1 && c[3][4] == 1 && c[3][5] == 0)
-                || (c[4][1] == 1 && c[4][2] == 1 && c[4][3] == 1 && c[4][4] == 1 && c[4][5] == 0)
-                || (c[5][1] == 1 && c[5][2] == 1 && c[5][3] == 1 && c[5][4] == 1 && c[5][5] == 0)
-                || (c[1][1] == 1 && c[2][1] == 1 && c[3][1] == 1 && c[4][1] == 1 && c[5][1] == 0)
-                || (c[1][2] == 1 && c[2][2] == 1 && c[3][2] == 1 && c[4][2] == 1 && c[5][2] == 0)
-                || (c[1][3] == 1 && c[2][3] == 1 && c[3][3] == 1 && c[4][3] == 1 && c[5][3] == 0)
-                || (c[1][4] == 1 && c[2][4] == 1 && c[3][4] == 1 && c[4][4] == 1 && c[5][4] == 0)
-                || (c[1][5] == 1 && c[2][5] == 1 && c[3][5] == 1 && c[4][5] == 1 && c[5][5] == 0)) {
+        } else if ((c[1][1] == 1 && c[2][2] == 1 && c[3][3] == 1 && c[4][4] == 1 && c[5][5] == 1)
+                || (c[1][5] == 1 && c[2][4] == 1 && c[3][3] == 1 && c[4][2] == 1 && c[5][1] == 1)
+                || (c[1][1] == 1 && c[1][2] == 1 && c[1][3] == 1 && c[1][4] == 1 && c[1][5] == 1)
+                || (c[2][1] == 1 && c[2][2] == 1 && c[2][3] == 1 && c[2][4] == 1 && c[2][5] == 1)
+                || (c[3][1] == 1 && c[3][2] == 1 && c[3][3] == 1 && c[3][4] == 1 && c[3][5] == 1)
+                || (c[4][1] == 1 && c[4][2] == 1 && c[4][3] == 1 && c[4][4] == 1 && c[4][5] == 1)
+                || (c[5][1] == 1 && c[5][2] == 1 && c[5][3] == 1 && c[5][4] == 1 && c[5][5] == 1)
+                || (c[1][1] == 1 && c[2][1] == 1 && c[3][1] == 1 && c[4][1] == 1 && c[5][1] == 1)
+                || (c[1][2] == 1 && c[2][2] == 1 && c[3][2] == 1 && c[4][2] == 1 && c[5][2] == 1)
+                || (c[1][3] == 1 && c[2][3] == 1 && c[3][3] == 1 && c[4][3] == 1 && c[5][3] == 1)
+                || (c[1][4] == 1 && c[2][4] == 1 && c[3][4] == 1 && c[4][4] == 1 && c[5][4] == 1)
+                || (c[1][5] == 1 && c[2][5] == 1 && c[3][5] == 1 && c[4][5] == 1 && c[5][5] == 1)) {
             Toast.makeText(getApplicationContext(), "Game over. You lost!", Toast.LENGTH_LONG).show();
             gameOver = true;
             disableButtons();

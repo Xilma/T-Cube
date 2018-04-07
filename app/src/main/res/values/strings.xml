@@ -40,6 +40,7 @@
     <string name="letter_o" android:textColor="@color/text">O</string>
     <string name="letter_x" android:textColor="@color/comp_player">X</string>
     <string name="blank"></string>
+    <string name="message">Choose your token!</string>
 
     <!--Help-->
     <string name="pageOne">Help 1/4</string>
