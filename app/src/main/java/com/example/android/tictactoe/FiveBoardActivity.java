@@ -3,6 +3,7 @@ package com.example.android.tictactoe;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import static com.example.android.tictactoe.ThreeBoardActivity.GAME_SCORES;
+
 public class FiveBoardActivity extends AppCompatActivity {
 
     private TextView back;
@@ -19,10 +22,9 @@ public class FiveBoardActivity extends AppCompatActivity {
     private Button[][] b;
     private int [][] c;
     private boolean playerToken;
-    private int roundCount;
-    private int player1Points;
-    private int computerPoints;
-    private TextView score;
+    private int gamesPlayed, gamesWon, gamesLost, gamesDraw = 0;
+    private SharedPreferences mPreferences;
+    private SharedPreferences.Editor mEditor;
     private int i, j = 0;
     AI ai;
 
@@ -45,6 +47,9 @@ public class FiveBoardActivity extends AppCompatActivity {
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
+
+        mPreferences = getSharedPreferences(GAME_SCORES, 0);
+        mEditor = mPreferences.edit();
 
         chooseToken();
     }
@@ -122,16 +127,16 @@ public class FiveBoardActivity extends AppCompatActivity {
         b[5][4] = (Button) findViewById(R.id.r5c4);
         b[5][5] = (Button) findViewById(R.id.r5c5);
 
-        for (i = 1; i <= 5; i++) {
-            for (j = 1; j <= 5; j++)
+        for (i = 1; i < 6; i++) {
+            for (j = 1; j < 6; j++)
                 c[i][j] = 2;
         }
 
-        Toast.makeText(getApplicationContext(), "Click a button to start.", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Click a button to start.", Toast.LENGTH_SHORT).show();
 
         // add the click listeners for each button
-        for (i = 1; i <= 5; i++) {
-            for (j = 1; j <= 5; j++) {
+        for (i = 1; i < 6; i++) {
+            for (j = 1; j < 6; j++) {
                 b[i][j].setOnClickListener(new MyClickListener(i, j));
                 if(!b[i][j].isEnabled()) {
                     b[i][j].setText(" ");
@@ -160,7 +165,8 @@ public class FiveBoardActivity extends AppCompatActivity {
                     b[x][y].setText(R.string.letter_o);}
                 if(playerToken == true){
                     b[x][y].setText(R.string.letter_x);
-                }c[x][y] = 0;
+                }
+                c[x][y] = 0;
 
                 if (!checkBoard()) {
                     ai.takeTurn();
@@ -172,108 +178,109 @@ public class FiveBoardActivity extends AppCompatActivity {
 
     private class AI {
         public void takeTurn() {
-            if(c[1][1]==2 &&
-                    ((c[1][2]==0 && c[1][3]==0 && c[1][4]==0 && c[1][5]==0) ||
+            if(c[1][1]==2 && ( (c[1][2]==0 && c[1][3]==0 && c[1][4]==0 && c[1][5]==0) ||
                             (c[2][2]==0 && c[3][3]==0 && c[4][4]==0 && c[5][5]==0) ||
-                            (c[2][1]==0 && c[3][1]==0 && c[4][1]==0 && c[5][1]==0))) {
+                            (c[2][1]==0 && c[3][1]==0 && c[4][1]==0 && c[5][1]==0)
+            )) {
                 markSquare(1,1);
-            } else if (c[1][2]==2 &&
-                    ((c[2][2]==0 && c[3][2]==0 && c[4][2]==0 && c[5][2]==0) ||
-                            (c[1][1]==0 && c[1][3]==0 && c[1][4]==0 && c[1][5]==0))) {
+            } else if (c[1][2]==2 && ( (c[2][2]==0 && c[3][2]==0 && c[4][2]==0 && c[5][2]==0) ||
+                            (c[1][1]==0 && c[1][3]==0 && c[1][4]==0 && c[1][5]==0)
+            )) {
                 markSquare(1,2);
-            } else if(c[1][3]==2 &&
-                    ((c[1][1]==0 && c[1][2]==0 && c[1][4]==0 && c[1][5]==0) ||
-                            (c[2][3]==0 && c[3][3]==0 && c[4][3]==0 && c[5][3]==0))){
+            } else if(c[1][3]==2 && ( (c[1][1]==0 && c[1][2]==0 && c[1][4]==0 && c[1][5]==0) ||
+                            (c[2][3]==0 && c[3][3]==0 && c[4][3]==0 && c[5][3]==0)
+            )) {
                 markSquare(1,3);
-            } else if(c[1][4]==2 &&
-                    ((c[1][1]==0 && c[1][2]==0 && c[1][3]==0 && c[1][5]==0) ||
-                            (c[2][4]==0 && c[3][4]==0 && c[4][4]==0 && c[5][4]==0))) {
+            } else if(c[1][4]==2 && ( (c[1][1]==0 && c[1][2]==0 && c[1][3]==0 && c[1][5]==0) ||
+                            (c[2][4]==0 && c[3][4]==0 && c[4][4]==0 && c[5][4]==0)
+            )) {
                 markSquare(1,4);
-            } else if(c[1][5]==2 &&
-                    ((c[1][1]==0 && c[1][2]==0 && c[1][3]==0 && c[1][4]==0) ||
-                            (c[2][5]==0 && c[3][5]==0 && c[4][5]==0 && c[5][5]==0))) {
+            } else if(c[1][5]==2 && ( (c[1][1]==0 && c[1][2]==0 && c[1][3]==0 && c[1][4]==0) ||
+                            (c[2][5]==0 && c[3][5]==0 && c[4][5]==0 && c[5][5]==0) ||
+                            (c[2][4]==0 && c[3][3]==0 && c[4][2]==0 && c[5][1]==0)
+            )) {
                 markSquare(1,5);
-            }else if(c[2][1]==2 &&
-                    ((c[2][2]==0 && c[2][3]==0 && c[2][4]==0 && c[2][5]==0)) ||
-                        (c[1][1]==0 && c[3][1]==0 && c[4][1]==0 && c[5][1]==0)) {
+            } else if(c[2][1]==2 && ( (c[2][2]==0 && c[2][3]==0 && c[2][4]==0 && c[2][5]==0) ||
+                        (c[1][1]==0 && c[3][1]==0 && c[4][1]==0 && c[5][1]==0)
+            )) {
                 markSquare(2,1);
-            }else if(c[2][2]==2 &&
-                    ((c[2][1]==0 && c[2][3]==0 && c[2][4]==0 && c[2][5]==0)) ||
-                        (c[1][2]==0 && c[3][2]==0 && c[4][2]==0 && c[5][2]==0)) {
+            }else if(c[2][2]==2 &&  ( (c[2][1]==0 && c[2][3]==0 && c[2][4]==0 && c[2][5]==0) ||
+                        (c[1][2]==0 && c[3][2]==0 && c[4][2]==0 && c[5][2]==0)
+            )) {
                 markSquare(2,2);
-            }else if(c[2][3]==2 &&
-                    ((c[2][1]==0 && c[2][2]==0 && c[2][4]==0 && c[2][5]==0)) ||
-                        (c[1][3]==0 && c[3][3]==0 && c[4][3]==0 && c[5][3]==0)) {
+            }else if(c[2][3]==2 &&  ( (c[2][1]==0 && c[2][2]==0 && c[2][4]==0 && c[2][5]==0) ||
+                        (c[1][3]==0 && c[3][3]==0 && c[4][3]==0 && c[5][3]==0)
+            )) {
                 markSquare(2,3);
-            }else if(c[2][4]==2 &&
-                    ((c[2][1]==0 && c[2][2]==0 && c[2][3]==0 && c[2][5]==0)) ||
-                        (c[1][4]==0 && c[3][4]==0 && c[4][4]==0 && c[5][4]==0)) {
+            }else if(c[2][4]==2 && ( (c[2][1]==0 && c[2][2]==0 && c[2][3]==0 && c[2][5]==0) ||
+                        (c[1][4]==0 && c[3][4]==0 && c[4][4]==0 && c[5][4]==0)
+            )) {
                 markSquare(2,4);
-            }else if(c[2][5]==2 &&
-                    ((c[2][2]==0 && c[2][3]==0 && c[2][4]==0 && c[2][1]==0)) ||
-                        (c[1][5]==0 && c[3][5]==0 && c[4][5]==0 && c[5][5]==0)){
+            }else if(c[2][5]==2 && ( (c[2][2]==0 && c[2][3]==0 && c[2][4]==0 && c[2][1]==0) ||
+                        (c[1][5]==0 && c[3][5]==0 && c[4][5]==0 && c[5][5]==0)
+            )){
                 markSquare(2,5);
-            }else if(c[3][1]==2 &&
-                    ((c[3][2]==0 && c[3][3]==0 && c[3][4]==0 && c[3][5]==0)) ||
-                        (c[1][1]==0 && c[2][1]==0 && c[4][1]==0 && c[5][1]==0)) {
+            }else if(c[3][1]==2 && ( (c[3][2]==0 && c[3][3]==0 && c[3][4]==0 && c[3][5]==0) ||
+                        (c[1][1]==0 && c[2][1]==0 && c[4][1]==0 && c[5][1]==0)
+            )) {
                 markSquare(3,1);
-            }else if(c[3][2]==2 &&
-                    ((c[3][1]==0 && c[3][3]==0 && c[3][4]==0 && c[3][5]==0)) ||
-                        (c[1][2]==0 && c[2][2]==0 && c[4][2]==0 && c[5][2]==0)) {
+            }else if(c[3][2]==2 && ( (c[3][1]==0 && c[3][3]==0 && c[3][4]==0 && c[3][5]==0) ||
+                        (c[1][2]==0 && c[2][2]==0 && c[4][2]==0 && c[5][2]==0)
+            )) {
                 markSquare(3,2);
-            }else if(c[3][3]==2 &&
-                    ((c[3][1]==0 && c[3][2]==0 && c[3][4]==0 && c[3][5]==0)) ||
-                        (c[1][3]==0 && c[2][3]==0 && c[4][3]==0 && c[5][3]==0)) {
+            }else if(c[3][3]==2 && ( (c[3][1]==0 && c[3][2]==0 && c[3][4]==0 && c[3][5]==0) ||
+                        (c[1][3]==0 && c[2][3]==0 && c[4][3]==0 && c[5][3]==0)
+            )) {
                 markSquare(3,3);
-            }else if(c[3][4]==2 &&
-                    ((c[3][1]==0 && c[3][2]==0 && c[3][3]==0 && c[3][5]==0)) ||
-                        (c[1][4]==0 && c[2][4]==0 && c[4][4]==0 && c[5][4]==0)) {
+            }else if(c[3][4]==2 && ( (c[3][1]==0 && c[3][2]==0 && c[3][3]==0 && c[3][5]==0) ||
+                        (c[1][4]==0 && c[2][4]==0 && c[4][4]==0 && c[5][4]==0)
+            )) {
                 markSquare(3,4);
-            }else if(c[3][5]==2 &&
-                    ((c[3][1]==0 && c[3][2]==0 && c[3][3]==0 && c[3][4]==0)) ||
-                        (c[1][5]==0 && c[2][5]==0 && c[4][5]==0 && c[5][5]==0)){
+            }else if(c[3][5]==2 && ( (c[3][1]==0 && c[3][2]==0 && c[3][3]==0 && c[3][4]==0) ||
+                        (c[1][5]==0 && c[2][5]==0 && c[4][5]==0 && c[5][5]==0)
+            )){
                 markSquare(3,5);
-            }else if(c[4][1]==2 &&
-                    ((c[4][2]==0 && c[4][3]==0 && c[4][4]==0 && c[4][5]==0)) ||
-                        (c[1][1]==0 && c[2][1]==0 && c[3][1]==0 && c[5][1]==0)) {
+            }else if(c[4][1]==2 && ( (c[4][2]==0 && c[4][3]==0 && c[4][4]==0 && c[4][5]==0) ||
+                        (c[1][1]==0 && c[2][1]==0 && c[3][1]==0 && c[5][1]==0)
+            )) {
                 markSquare(4,1);
-            }else if(c[4][2]==2 &&
-                    ((c[4][1]==0 && c[4][3]==0 && c[4][4]==0 && c[4][5]==0)) ||
-                        (c[1][2]==0 && c[2][2]==0 && c[3][2]==0 && c[5][2]==0)) {
+            }else if(c[4][2]==2 && ( (c[4][1]==0 && c[4][3]==0 && c[4][4]==0 && c[4][5]==0) ||
+                        (c[1][2]==0 && c[2][2]==0 && c[3][2]==0 && c[5][2]==0)
+            )) {
                 markSquare(4,2);
-            }else if(c[4][3]==2 &&
-                    ((c[4][1]==0 && c[4][2]==0 && c[4][4]==0 && c[4][5]==0)) ||
-                        (c[1][3]==0 && c[2][3]==0 && c[3][3]==0 && c[5][3]==0)) {
+            }else if(c[4][3]==2 && ( (c[4][1]==0 && c[4][2]==0 && c[4][4]==0 && c[4][5]==0) ||
+                        (c[1][3]==0 && c[2][3]==0 && c[3][3]==0 && c[5][3]==0)
+            )) {
                 markSquare(4,3);
-            }else if(c[4][4]==2 &&
-                    ((c[4][1]==0 && c[4][2]==0 && c[4][3]==0 && c[4][5]==0)) ||
-                        (c[1][4]==0 && c[2][4]==0 && c[3][4]==0 && c[5][4]==0)) {
+            }else if(c[4][4]==2 && ( (c[4][1]==0 && c[4][2]==0 && c[4][3]==0 && c[4][5]==0) ||
+                        (c[1][4]==0 && c[2][4]==0 && c[3][4]==0 && c[5][4]==0)
+            )) {
                 markSquare(4,4);
-            }else if(c[4][5]==2 &&
-                    ((c[4][1]==0 && c[4][2]==0 && c[4][3]==0 && c[4][4]==0)) ||
-                        (c[1][5]==0 && c[2][5]==0 && c[3][5]==0 && c[5][5]==0)){
+            }else if(c[4][5]==2 && ( (c[4][1]==0 && c[4][2]==0 && c[4][3]==0 && c[4][4]==0) ||
+                        (c[1][5]==0 && c[2][5]==0 && c[3][5]==0 && c[5][5]==0)
+            )){
                 markSquare(4,5);
-            }else if(c[5][1]==2 &&
-                    ((c[5][2]==0 && c[5][3]==0 && c[5][4]==0 && c[5][5]==0) ||
+            }else if(c[5][1]==2 && ( (c[5][2]==0 && c[5][3]==0 && c[5][4]==0 && c[5][5]==0) ||
                             (c[4][2]==0 && c[3][3]==0 && c[2][4]==0 && c[1][5]==0) ||
-                            (c[4][1]==0 && c[3][1]==0 && c[2][1]==0 && c[1][1]==0))) {
+                            (c[4][1]==0 && c[3][1]==0 && c[2][1]==0 && c[1][1]==0)
+            )) {
                 markSquare(5,1);
-            }else if(c[5][2]==2 &&
-                    ((c[5][1]==0 && c[5][3]==0 && c[5][4]==0 && c[5][5]==0)) ||
-                    (c[1][2]==0 && c[2][2]==0 && c[3][2]==0 && c[4][2]==0)) {
+            }else if(c[5][2]==2 && ( (c[5][1]==0 && c[5][3]==0 && c[5][4]==0 && c[5][5]==0) ||
+                    (c[1][2]==0 && c[2][2]==0 && c[3][2]==0 && c[4][2]==0)
+            )) {
                 markSquare(5,2);
-            }else if(c[5][3]==2 &&
-                    ((c[5][1]==0 && c[5][2]==0 && c[5][4]==0 && c[5][5]==0)) ||
-                    (c[1][3]==0 && c[2][3]==0 && c[3][3]==0 && c[4][3]==0)) {
+            }else if(c[5][3]==2 && ( (c[5][1]==0 && c[5][2]==0 && c[5][4]==0 && c[5][5]==0) ||
+                    (c[1][3]==0 && c[2][3]==0 && c[3][3]==0 && c[4][3]==0)
+            )) {
                 markSquare(5,3);
-            }else if(c[5][4]==2 &&
-                    ((c[5][1]==0 && c[5][2]==0 && c[5][3]==0 && c[5][5]==0)) ||
-                    (c[1][4]==0 && c[2][4]==0 && c[3][4]==0 && c[4][4]==0)) {
+            }else if(c[5][4]==2 && ( (c[5][1]==0 && c[5][2]==0 && c[5][3]==0 && c[5][5]==0) ||
+                    (c[1][4]==0 && c[2][4]==0 && c[3][4]==0 && c[4][4]==0)
+            )) {
                 markSquare(5,4);
-            }else if(c[5][5]==2 &&
-                    ((c[5][1]==0 && c[5][2]==0 && c[5][3]==0 && c[5][4]==0) ||
+            }else if(c[5][5]==2 && ( (c[5][1]==0 && c[5][2]==0 && c[5][3]==0 && c[5][4]==0) ||
                             (c[4][4]==0 && c[3][3]==0 && c[2][2]==0 && c[1][1]==0) ||
-                            (c[4][5]==0 && c[3][5]==0 && c[2][5]==0 && c[1][5]==0))) {
+                            (c[4][5]==0 && c[3][5]==0 && c[2][5]==0 && c[1][5]==0)
+            )) {
                 markSquare(5,5);
             } else {
                 Random rand = new Random();
@@ -318,6 +325,8 @@ public class FiveBoardActivity extends AppCompatActivity {
                 || (c[1][4] == 0 && c[2][4] == 0 && c[3][4] == 0 && c[4][4] == 0 && c[5][4] == 0)
                 || (c[1][5] == 0 && c[2][5] == 0 && c[3][5] == 0 && c[4][5] == 0 && c[5][5] == 0)) {
             Toast.makeText(getApplicationContext(), "Game over. You win!", Toast.LENGTH_LONG).show();
+            gameWin();
+            gamePlayed();
             gameOver = true;
             disableButtons();
         } else if ((c[1][1] == 1 && c[2][2] == 1 && c[3][3] == 1 && c[4][4] == 1 && c[5][5] == 1)
@@ -333,6 +342,8 @@ public class FiveBoardActivity extends AppCompatActivity {
                 || (c[1][4] == 1 && c[2][4] == 1 && c[3][4] == 1 && c[4][4] == 1 && c[5][4] == 1)
                 || (c[1][5] == 1 && c[2][5] == 1 && c[3][5] == 1 && c[4][5] == 1 && c[5][5] == 1)) {
             Toast.makeText(getApplicationContext(), "Game over. You lost!", Toast.LENGTH_LONG).show();
+            gameLost();
+            gamePlayed();
             gameOver = true;
             disableButtons();
         } else {
@@ -348,6 +359,8 @@ public class FiveBoardActivity extends AppCompatActivity {
             if(!empty) {
                 gameOver = true;
                 Toast.makeText(getApplicationContext(), "Game over. It's a draw!", Toast.LENGTH_LONG).show();
+                gameDraw();
+                gamePlayed();
                 disableButtons();
             }
         }
@@ -359,6 +372,44 @@ public class FiveBoardActivity extends AppCompatActivity {
             for (j = 1; j <= 5; j++) {
                 b[i][j].setEnabled(false);
             }
+        }
+    }
+
+    public void gameWin(){
+        if(mPreferences.contains("GAMES_WON_FIVE")) {
+            int gw = mPreferences.getInt("GAMES_WON_FIVE", 0);
+            gamesWon = gw + 1;
+            mEditor.putInt("GAMES_WON_FIVE", gamesWon);
+            mEditor.apply();
+        }
+    }
+
+    public void gameLost(){
+        if(mPreferences.contains("GAMES_LOST_FIVE")) {
+            int gl = mPreferences.getInt("GAMES_LOST_FIVE", 0);
+            gamesLost = gl + 1;
+            mEditor.putInt("GAMES_LOST_FIVE", gamesLost);
+            mEditor.apply();
+        }
+    }
+
+    public void gameDraw(){
+        if(mPreferences.contains("GAMES_DRAW_FIVE")) {
+            int gd = mPreferences.getInt("GAMES_DRAW_FIVE", 0);
+            gamesDraw = gd + 1;
+            mEditor.putInt("GAMES_DRAW_FIVE", gamesDraw);
+            mEditor.apply();
+        }
+    }
+
+    public void gamePlayed(){
+        if(mPreferences.contains("GAMES_PLAYED_FIVE")) {
+            int gw = mPreferences.getInt("GAMES_WON_FIVE", 0);
+            int gl = mPreferences.getInt("GAMES_LOST_FIVE", 0);
+            int gd = mPreferences.getInt("GAMES_DRAW_FIVE", 0);
+            gamesPlayed = (gw + gl + gd);
+            mEditor.putInt("GAMES_PLAYED_FIVE", gamesPlayed);
+            mEditor.apply();
         }
     }
 }
