@@ -3,6 +3,7 @@ package com.example.android.tictactoe;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,11 +20,11 @@ public class ThreeBoardActivity extends AppCompatActivity{
     private Button [][] b;
     private int [][] c;
     private boolean playerToken;
-    private int roundCount;
-    private int player1Points;
-    private int computerPoints;
-    private TextView score;
+    private int gamesPlayed, gamesWon, gamesLost, gamesDraw = 0;
     private int i, j = 0;
+    private SharedPreferences mPreferences;
+    private SharedPreferences.Editor mEditor;
+    public static final String GAME_SCORES = "TicTacToe_Scores";
     AI ai;
 
     @Override
@@ -41,6 +42,9 @@ public class ThreeBoardActivity extends AppCompatActivity{
             }
         });
 
+        mPreferences = getSharedPreferences(GAME_SCORES, 0);
+        mEditor = mPreferences.edit();
+
         decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
@@ -49,7 +53,7 @@ public class ThreeBoardActivity extends AppCompatActivity{
         chooseToken();
     }
 
-    public void chooseToken(){
+      public void chooseToken(){
         AlertDialog.Builder alertDialogBuilder = new
                 AlertDialog.Builder(this);
         alertDialogBuilder.setMessage(R.string.message);
@@ -239,6 +243,8 @@ public class ThreeBoardActivity extends AppCompatActivity{
                 || (c[3][1] == 0 && c[3][2] == 0 && c[3][3] == 0)
                 || (c[1][1] == 0 && c[2][1] == 0 && c[3][1] == 0)) {
             Toast.makeText(getApplicationContext(), "Game over. You win!", Toast.LENGTH_LONG).show();
+            gameWin();
+            gamePlayed();
             gameOver = true;
             disableButtons();
         } else if ((c[1][1] == 1 && c[2][2] == 1 && c[3][3] == 1)
@@ -250,6 +256,8 @@ public class ThreeBoardActivity extends AppCompatActivity{
                 || (c[3][1] == 1 && c[3][2] == 1 && c[3][3] == 1)
                 || (c[1][1] == 1 && c[2][1] == 1 && c[3][1] == 1)) {
             Toast.makeText(getApplicationContext(), "Game over. You lost!", Toast.LENGTH_LONG).show();
+            gameLost();
+            gamePlayed();
             gameOver = true;
             disableButtons();
         } else {
@@ -265,9 +273,12 @@ public class ThreeBoardActivity extends AppCompatActivity{
             if(!empty) {
                 gameOver = true;
                 Toast.makeText(getApplicationContext(), "Game over. It's a draw!", Toast.LENGTH_LONG).show();
+                gameDraw();
+                gamePlayed();
                 disableButtons();
             }
         }
+
         return gameOver;
     }
 
@@ -278,6 +289,39 @@ public class ThreeBoardActivity extends AppCompatActivity{
             }
         }
     }
+
+    public void gameWin(){
+        if(mPreferences.contains("GAMES_WON_THREE")) {
+            gamesWon += 1;
+            mEditor.putInt("GAMES_WON_THREE", gamesWon);
+            mEditor.apply();
+        }
+    }
+
+    public void gameLost(){
+        if(mPreferences.contains("GAMES_LOST_THREE")) {
+            gamesLost += 1;
+            mEditor.putInt("GAMES_LOST_THREE", gamesLost);
+            mEditor.apply();
+        }
+    }
+
+    public void gameDraw(){
+        if(mPreferences.contains("GAMES_DRAW_THREE")) {
+            gamesDraw += 1;
+            mEditor.putInt("GAMES_DRAW_THREE", gamesDraw);
+            mEditor.apply();
+        }
+    }
+
+    public void gamePlayed(){
+        if(mPreferences.contains("GAMES_PLAYED")) {
+            gamesPlayed += 1;
+            mEditor.putInt("GAMES_PLAYED", gamesPlayed);
+            mEditor.apply();
+        }
+    }
+
 }
 
 
