@@ -1,9 +1,9 @@
 package com.example.android.tictactoe;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -53,26 +53,33 @@ public class ThreeBoardActivity extends AppCompatActivity{
         chooseToken();
     }
 
-      public void chooseToken(){
-        AlertDialog.Builder alertDialogBuilder = new
-                AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage(R.string.message);
-        alertDialogBuilder.setPositiveButton(R.string.letter_o,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        playerToken = false;
-                        setBoard();
-                    }
-                });
-        alertDialogBuilder.setNegativeButton(R.string.letter_x,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        playerToken = true;
-                        setBoard();
-                    }
-                });
+    public void chooseToken(){
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_choose_token, null);
+        Button letterX = mView.findViewById(R.id.lx);
+        Button letterO = mView.findViewById(R.id.lo);
+        letterX.setEnabled(true);
+        letterO.setEnabled(true);
+
+        letterX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerToken = true;
+                Toast.makeText(getApplicationContext(), "Click outside this dialog to play.", Toast.LENGTH_LONG).show();
+                setBoard();
+            }
+        });
+
+        letterO.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  playerToken = false;
+                  Toast.makeText(getApplicationContext(), "Click outside this dialog to play.", Toast.LENGTH_LONG).show();
+                  setBoard();
+              }
+        });
+
+        alertDialogBuilder.setView(mView);
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
@@ -116,8 +123,6 @@ public class ThreeBoardActivity extends AppCompatActivity{
                 c[i][j] = 2;
         }
 
-        Toast.makeText(getApplicationContext(), "Click a button to start.", Toast.LENGTH_SHORT).show();
-
         // add the click listeners for each button
         for (i = 1; i <= 3; i++) {
             for (j = 1; j <= 3; j++) {
@@ -128,6 +133,9 @@ public class ThreeBoardActivity extends AppCompatActivity{
                 }
             }
         }
+
+        Toast.makeText(getApplicationContext(), "Click a button to start.", Toast.LENGTH_LONG).show();
+
     }
 
 
@@ -149,6 +157,9 @@ public class ThreeBoardActivity extends AppCompatActivity{
                     b[x][y].setText(R.string.letter_o);}
                 if(playerToken == true){
                     b[x][y].setText(R.string.letter_x);
+                }
+                if(view instanceof Button){
+                    ((Button)view).setTextColor(Color.parseColor("#7c4dff"));
                 }
                 c[x][y] = 0;
 

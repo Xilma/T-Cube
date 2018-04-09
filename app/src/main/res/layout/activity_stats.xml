@@ -176,7 +176,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textAllCaps="true"
         android:textAlignment="center"
-        android:text="@string/reset"
+        android:text="@string/reset_score"
         android:textColor="@color/text"
         android:textStyle="bold"
         android:background="@color/colorAccent"

@@ -25,6 +25,7 @@
     <string name="games_won">Games Won: </string>
     <string name="games_lost">Games Lost: </string>
     <string name="games_draw">Games Draw: </string>
+    <string name="reset_score">Reset Scores</string>
 
     <!--Reset option-->
     <string name="r_games_played">Games Played: 0</string>
