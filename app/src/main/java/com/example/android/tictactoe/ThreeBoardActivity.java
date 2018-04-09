@@ -292,7 +292,8 @@ public class ThreeBoardActivity extends AppCompatActivity{
 
     public void gameWin(){
         if(mPreferences.contains("GAMES_WON_THREE")) {
-            gamesWon += 1;
+            int gw = mPreferences.getInt("GAMES_WON_THREE", 0);
+            gamesWon = gw + 1;
             mEditor.putInt("GAMES_WON_THREE", gamesWon);
             mEditor.apply();
         }
@@ -300,7 +301,8 @@ public class ThreeBoardActivity extends AppCompatActivity{
 
     public void gameLost(){
         if(mPreferences.contains("GAMES_LOST_THREE")) {
-            gamesLost += 1;
+            int gl = mPreferences.getInt("GAMES_LOST_THREE", 0);
+            gamesLost = gl + 1;
             mEditor.putInt("GAMES_LOST_THREE", gamesLost);
             mEditor.apply();
         }
@@ -308,7 +310,8 @@ public class ThreeBoardActivity extends AppCompatActivity{
 
     public void gameDraw(){
         if(mPreferences.contains("GAMES_DRAW_THREE")) {
-            gamesDraw += 1;
+            int gd = mPreferences.getInt("GAMES_DRAW_THREE", 0);
+            gamesDraw = gd + 1;
             mEditor.putInt("GAMES_DRAW_THREE", gamesDraw);
             mEditor.apply();
         }
@@ -316,7 +319,10 @@ public class ThreeBoardActivity extends AppCompatActivity{
 
     public void gamePlayed(){
         if(mPreferences.contains("GAMES_PLAYED")) {
-            gamesPlayed += 1;
+            int gw = mPreferences.getInt("GAMES_WON_THREE", 0);
+            int gl = mPreferences.getInt("GAMES_LOST_THREE", 0);
+            int gd = mPreferences.getInt("GAMES_DRAW_THREE", 0);
+            gamesPlayed = (gw + gl + gd);
             mEditor.putInt("GAMES_PLAYED", gamesPlayed);
             mEditor.apply();
         }
