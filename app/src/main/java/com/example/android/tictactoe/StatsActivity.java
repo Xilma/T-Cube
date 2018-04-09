@@ -50,6 +50,8 @@ public class StatsActivity extends AppCompatActivity {
         mEditor = mPreferences.edit();
 
         setScoresThree();
+        setScoresFive();
+        setTotal();
     }
 
     public void resetStats(View view){
@@ -61,25 +63,46 @@ public class StatsActivity extends AppCompatActivity {
         games_lost_five.setText(R.string.r_games_lost);
         games_draw_five.setText(R.string.r_games_draw);
 
+        mEditor.putInt("TOTAL_GAMES_PLAYED", 0);
         mEditor.putInt("GAMES_PLAYED", 0);
         mEditor.putInt("GAMES_LOST_THREE", 0);
         mEditor.putInt("GAMES_WON_THREE", 0);
         mEditor.putInt("GAMES_DRAW_THREE", 0);
+        mEditor.putInt("GAMES_PLAYED_FIVE", 0);
+        mEditor.putInt("GAMES_LOST_FIVE", 0);
+        mEditor.putInt("GAMES_WON_FIVE", 0);
+        mEditor.putInt("GAMES_DRAW_FIVE", 0);
 
         mEditor.apply();
     }
 
     public void setScoresThree(){
-        int gp = mPreferences.getInt("GAMES_PLAYED", 0);
         int gw = mPreferences.getInt("GAMES_WON_THREE", 0);
         int gl = mPreferences.getInt("GAMES_LOST_THREE", 0);
         int gd = mPreferences.getInt("GAMES_DRAW_THREE", 0);
 
-        games_played.setText(getString(R.string.games_played) + " " + gp);
         games_won_three.setText(getString(R.string.games_won) + " " + gw);
         games_lost_three.setText(getString(R.string.games_lost) + " " + gl);
         games_draw_three.setText(getString(R.string.games_draw) + " " + gd);
+    }
 
+    public void setScoresFive(){
+        int gwf = mPreferences.getInt("GAMES_WON_FIVE", 0);
+        int glf = mPreferences.getInt("GAMES_LOST_FIVE", 0);
+        int gdf = mPreferences.getInt("GAMES_DRAW_FIVE", 0);
+
+        games_won_five.setText(getString(R.string.games_won) + " " + gwf);
+        games_lost_five.setText(getString(R.string.games_lost) + " " + glf);
+        games_draw_five.setText(getString(R.string.games_draw) + " " + gdf);
+    }
+
+    public void setTotal(){
+        int gpt = mPreferences.getInt("GAMES_PLAYED", 0);
+        int gpf = mPreferences.getInt("GAMES_PLAYED_FIVE", 0);
+        int gamesPlayed = (gpt + gpf);
+        mEditor.putInt("TOTAL_GAMES_PLAYED", gamesPlayed);
+        games_played.setText(getString(R.string.games_played) + " " + gamesPlayed);
+        mEditor.apply();
     }
 
 }

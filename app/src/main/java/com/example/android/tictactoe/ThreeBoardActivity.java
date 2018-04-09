@@ -116,7 +116,7 @@ public class ThreeBoardActivity extends AppCompatActivity{
                 c[i][j] = 2;
         }
 
-        Toast.makeText(getApplicationContext(), "Click a button to start.", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Click a button to start.", Toast.LENGTH_SHORT).show();
 
         // add the click listeners for each button
         for (i = 1; i <= 3; i++) {
