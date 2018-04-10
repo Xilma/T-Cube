@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChooseOptionFragment">
+    tools:context=".ChooseOpponentFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,12 +11,12 @@
         android:padding="50dp">
 
         <TextView
-            android:id="@+id/board"
+            android:id="@+id/option"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold"
-            android:text="@string/prompt_board"
+            android:text="Choose your opponent"
             android:textColor="@color/text"
             android:textAlignment="center"
             android:layout_centerHorizontal="true"
@@ -27,14 +26,14 @@
             android:clickable="true"/>
 
         <TextView
-            android:id="@+id/three"
-            android:layout_below="@id/board"
+            android:id="@+id/computer"
+            android:layout_below="@id/option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold"
+            android:text="Computer"
             android:textAlignment="center"
-            android:text="@string/three"
             android:textColor="@color/text"
             android:layout_centerHorizontal="true"
             android:textAllCaps="true"
@@ -42,14 +41,14 @@
             android:clickable="true"/>
 
         <TextView
-            android:id="@+id/five"
-            android:layout_below="@id/three"
+            android:id="@+id/human"
+            android:layout_below="@id/computer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold"
-            android:textAlignment="center"
-            android:text="@string/five"
+            android:text="Human"
             android:textColor="@color/text"
             android:layout_centerHorizontal="true"
             android:textAllCaps="true"

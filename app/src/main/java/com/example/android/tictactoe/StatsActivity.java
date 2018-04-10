@@ -11,8 +11,7 @@ import static com.example.android.tictactoe.ThreeBoardActivity.GAME_SCORES;
 
 public class StatsActivity extends AppCompatActivity {
 
-    private Scores scores;
-    private TextView back_button, games_played;
+    private TextView back_button, games_played, next_button;
     private TextView games_won_three, games_lost_three, games_draw_three, games_won_five, games_lost_five, games_draw_five;
     private View decorView;
     private SharedPreferences mPreferences;
@@ -24,6 +23,7 @@ public class StatsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stats);
 
         back_button = findViewById(R.id.back);
+        next_button = findViewById(R.id.next);
         games_played = findViewById(R.id.games_played);
         games_won_three = findViewById(R.id.games_won_three);
         games_lost_three = findViewById(R.id.games_lost_three);
@@ -37,6 +37,15 @@ public class StatsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent menu = new Intent (StatsActivity.this, MainActivity.class);
                 startActivity(menu);
+                finish();
+            }
+        });
+
+        next_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent multiplayer = new Intent (StatsActivity.this, StatsMultiplayerActivity.class);
+                startActivity(multiplayer);
                 finish();
             }
         });

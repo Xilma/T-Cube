@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLight"
-    tools:context=".StatsActivity">
+    tools:context=".StatsMultiplayerActivity">
 
     <LinearLayout
         android:id="@+id/nav"
@@ -31,18 +31,6 @@
                 android:textColor="@color/colorAccent"
                 android:clickable="true"/>
 
-            <TextView
-                android:id="@+id/next"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableRight="@drawable/next_button"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold"
-                android:text="Next  "
-                android:textColor="@color/colorAccent"
-                android:clickable="true"/>
-
         </RelativeLayout>
 
     </LinearLayout>
@@ -52,7 +40,7 @@
         android:layout_below="@id/nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/single_player"
@@ -62,7 +50,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:text="@string/stats_single_player"
+            android:text="@string/stats_multiplayer"
             android:textColor="@color/menu_title"
             android:textAllCaps="true"
             android:layout_marginBottom="30dp"/>
@@ -81,7 +69,7 @@
             android:layout_marginBottom="20dp" />
 
     </RelativeLayout>
-    
+
     <LinearLayout
         android:id="@+id/three_board"
         android:layout_below="@id/details_one"
@@ -91,7 +79,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp">
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -116,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold"
-                android:text="@string/games_won"
+                android:text="@string/player_one_win"
                 android:textColor="@color/textPrimary"
                 android:layout_marginBottom="10dp" />
 
@@ -126,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold"
-                android:text="@string/games_lost"
+                android:text="@string/player_two_win"
                 android:textColor="@color/textPrimary"
                 android:layout_marginBottom="10dp" />
 
@@ -136,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold"
-                android:text="@string/games_draw"
+                android:text="@string/multi_draw"
                 android:textColor="@color/textPrimary"
                 android:layout_marginBottom="10dp" />
 
@@ -178,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold"
-                android:text="@string/games_won"
+                android:text="@string/player_one_win"
                 android:textColor="@color/textPrimary"
                 android:layout_marginBottom="10dp" />
 
@@ -188,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold"
-                android:text="@string/games_lost"
+                android:text="@string/player_two_win"
                 android:textColor="@color/textPrimary"
                 android:layout_marginBottom="10dp" />
 
@@ -198,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold"
-                android:text="@string/games_draw"
+                android:text="@string/multi_draw"
                 android:textColor="@color/textPrimary"
                 android:layout_marginBottom="10dp" />
 

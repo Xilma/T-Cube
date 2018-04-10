@@ -53,4 +53,15 @@
         vertical or diagonal row on the grid.</string>
     <string name="info_two">A Draw: \n\n Neither player achieves a win and all cells in the grid are filled.</string>
 
+    <string name="stats_single_player">Single Player</string>
+    <string name="stats_multiplayer">Multiplayer</string>
+    <string name="player_one_win">Player 1 Won:</string>
+    <string name="player_two_win">Player 2 Won:</string>
+    <string name="multi_draw">Draw:</string>
+
+    <!--Reset option multiplayer-->
+    <string name="r_player_one_win">Player 1 Won: 0</string>
+    <string name="r_player_two_win">Player 2 Won: 0</string>
+    <string name="r_multi_draw">Draw: 0</string>
+
 </resources>

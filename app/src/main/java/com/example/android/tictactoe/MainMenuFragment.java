@@ -42,7 +42,7 @@ public class MainMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Navigate to ChooseBoard Fragment
-                Fragment chooseBoard = new ChooseBoardFragment();
+                Fragment chooseBoard = new ChooseOpponentFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.menu_options, chooseBoard);
                 transaction.addToBackStack(null);

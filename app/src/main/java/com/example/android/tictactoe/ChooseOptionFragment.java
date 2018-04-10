@@ -1,10 +1,10 @@
 package com.example.android.tictactoe;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +16,7 @@ import android.widget.TextView;
  */
 public class ChooseOptionFragment extends Fragment {
 
-    private TextView token_o, token_x;
+    private TextView three, five;
 
     public ChooseOptionFragment() {
         // Required empty public constructor
@@ -33,31 +33,26 @@ public class ChooseOptionFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        token_o = view.findViewById(R.id.token_O);
-        token_x = view.findViewById(R.id.token_X);
 
-        token_o.setOnClickListener(new View.OnClickListener(){
+        three = view.findViewById(R.id.three);
+        five = view.findViewById(R.id.five);
+
+        three.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                selectBoard();
+                Intent threeBoard = new Intent (getActivity(), ThreeBoardHumanActivity.class);
+                startActivity(threeBoard);
+                getActivity().finish();
             }
         });
 
-        token_x.setOnClickListener(new View.OnClickListener(){
+        five.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                selectBoard();
+                Intent fiveBoard = new Intent (getActivity(), FiveBoardActivity.class);
+                startActivity(fiveBoard);
+                getActivity().finish();
             }
         });
-
-    }
-
-    public void selectBoard(){
-        //Navigate to Stations Fragment
-        Fragment chooseBoard = new ChooseBoardFragment();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.menu_options, chooseBoard);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 }

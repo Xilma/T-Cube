@@ -23,7 +23,10 @@
         <activity android:name=".StatsActivity" />
         <activity android:name=".OptionsActivity" />
         <activity android:name=".ThreeBoardActivity" />
-        <activity android:name=".FiveBoardActivity"></activity>
+        <activity android:name=".FiveBoardActivity" />
+        <activity android:name=".ThreeBoardHumanActivity" />
+        <activity android:name=".FiveBoardHumanActivity" />
+        <activity android:name=".StatsMultiplayerActivity"></activity>
     </application>
 
 </manifest>
