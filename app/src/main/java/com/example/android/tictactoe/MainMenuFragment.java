@@ -17,7 +17,7 @@ import android.widget.TextView;
  */
 public class MainMenuFragment extends Fragment {
 
-    private TextView play, stats, options, help;
+    private TextView play, stats, help;
 
     public MainMenuFragment() {
         // Required empty public constructor
@@ -36,7 +36,6 @@ public class MainMenuFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         play = view.findViewById(R.id.play);
         stats = view.findViewById(R.id.stats);
-        options = view.findViewById(R.id.options);
         help = view.findViewById(R.id.help);
 
         play.setOnClickListener(new View.OnClickListener(){
@@ -55,14 +54,6 @@ public class MainMenuFragment extends Fragment {
             public void onClick(View view){
                 Intent stats = new Intent(getActivity(), StatsActivity.class);
                 startActivity(stats);
-                getActivity().finish();
-            }
-        });
-
-        options.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                Intent options = new Intent(getActivity(), OptionsActivity.class);
-                startActivity(options);
                 getActivity().finish();
             }
         });
