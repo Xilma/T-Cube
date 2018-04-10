@@ -16,7 +16,8 @@ public class ThreeBoardHumanActivity extends AppCompatActivity{
     private boolean playerTurn = true;
     private Button [][] b;
     private int [][] c;
-    private boolean playerToken;private int gamesPlayed, gamesWon, gamesLost, gamesDraw = 0;
+    private boolean playerToken;
+    private int gamesPlayed, gamesWon, gamesLost, gamesDraw = 0;
     private int i, j = 0;
     private SharedPreferences mPreferences;
     private SharedPreferences.Editor mEditor;
@@ -25,7 +26,7 @@ public class ThreeBoardHumanActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_three_board);
+        setContentView(R.layout.activity_three_board_human);
 
         TextView back = findViewById(R.id.back);
         View decorView = getWindow().getDecorView();
@@ -95,6 +96,7 @@ public class ThreeBoardHumanActivity extends AppCompatActivity{
 
     // Set up the game board.
     private void setBoard() {
+        playerTurn = true;
         b = new Button[4][4];
         c = new int[4][4];
 
@@ -172,13 +174,18 @@ public class ThreeBoardHumanActivity extends AppCompatActivity{
                     b[x][y].setText(R.string.letter_o);
                 }
                 c[x][y] = 1;
-                playerTurn = true;
-                Toast.makeText(getApplicationContext(), "Player 1 turn", Toast.LENGTH_SHORT).show();
 
+                if(!checkBoard()){
+                    playerTurn = true;
+                    Toast.makeText(getApplicationContext(), "Player 1 turn", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                       playerTurn = false;
+                }
+
+            }else {
+                checkBoard();
             }
-
-            checkBoard();
-
         }
     }
 

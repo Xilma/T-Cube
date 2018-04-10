@@ -49,7 +49,7 @@ public class ChooseOptionFragment extends Fragment {
         five.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent fiveBoard = new Intent (getActivity(), FiveBoardActivity.class);
+                Intent fiveBoard = new Intent (getActivity(), FiveBoardHumanActivity.class);
                 startActivity(fiveBoard);
                 getActivity().finish();
             }
