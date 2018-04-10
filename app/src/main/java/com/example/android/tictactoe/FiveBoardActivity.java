@@ -170,15 +170,13 @@ public class FiveBoardActivity extends AppCompatActivity {
             if (b[x][y].isEnabled()) {
                 b[x][y].setEnabled(false);
                 if(playerToken == false) {
+                    b[x][y].setTextColor(Color.parseColor("#673ab7"));
                     b[x][y].setText(R.string.letter_o);
                 }
                 if(playerToken == true){
+                    b[x][y].setTextColor(Color.parseColor("#673ab7"));
                     b[x][y].setText(R.string.letter_x);
 
-                }
-
-                if(view instanceof Button){
-                    ((Button)view).setTextColor(Color.parseColor("#ecc8f2"));
                 }
 
                 c[x][y] = 0;
@@ -314,8 +312,10 @@ public class FiveBoardActivity extends AppCompatActivity {
         private void markSquare(int x, int y) {
             b[x][y].setEnabled(false);
             if(playerToken == false){
+                b[x][y].setTextColor(Color.parseColor("#ffffff"));
                 b[x][y].setText(R.string.letter_x);}
             if(playerToken == true){
+                b[x][y].setTextColor(Color.parseColor("#ffffff"));
                 b[x][y].setText(R.string.letter_o);
             }
             c[x][y] = 1;
