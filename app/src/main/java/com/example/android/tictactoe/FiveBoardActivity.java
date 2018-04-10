@@ -178,7 +178,7 @@ public class FiveBoardActivity extends AppCompatActivity {
                 }
 
                 if(view instanceof Button){
-                    ((Button)view).setTextColor(Color.parseColor("#7c4dff"));
+                    ((Button)view).setTextColor(Color.parseColor("#ecc8f2"));
                 }
 
                 c[x][y] = 0;

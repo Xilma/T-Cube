@@ -9,5 +9,5 @@
     <color name="textSecondary">#757575</color>
     <color name="menu_title">#673ab7</color>
     <color name="board">#c873d7</color>
-    <color name="comp_player">#52e4ff</color>
+    <color name="player">#ecc8f2</color>
 </resources>
