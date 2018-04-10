@@ -12,7 +12,6 @@ import static com.example.android.tictactoe.ThreeBoardHumanActivity.MULTI_GAME_S
 public class StatsMultiplayerActivity extends AppCompatActivity {
 
     private TextView games_played, games_won_three, games_lost_three, games_draw_three, games_won_five, games_lost_five, games_draw_five;
-    private View decorView;
     private SharedPreferences mPreferences;
     private SharedPreferences.Editor mEditor;
 
@@ -39,7 +38,7 @@ public class StatsMultiplayerActivity extends AppCompatActivity {
         games_lost_five = findViewById(R.id.games_lost_five);
         games_draw_five = findViewById(R.id.games_drawn_five);
 
-        decorView = getWindow().getDecorView();
+        View decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
@@ -79,9 +78,9 @@ public class StatsMultiplayerActivity extends AppCompatActivity {
         int gl = mPreferences.getInt("PLAYER_TWO_WON", 0);
         int gd = mPreferences.getInt("MULTI_GAMES_DRAW", 0);
 
-        games_won_three.setText(getString(R.string.player_one_win) + " " + gw);
-        games_lost_three.setText(getString(R.string.player_two_win) + " " + gl);
-        games_draw_three.setText(getString(R.string.multi_draw) + " " + gd);
+        games_won_three.setText(getString(R.string.player_one_win) + getString(R.string.blank) + gw);
+        games_lost_three.setText(getString(R.string.player_two_win) + getString(R.string.blank) + gl);
+        games_draw_three.setText(getString(R.string.multi_draw) + getString(R.string.blank) + gd);
     }
 
     public void setScoresFive(){
@@ -89,9 +88,9 @@ public class StatsMultiplayerActivity extends AppCompatActivity {
         int glf = mPreferences.getInt("PLAYER_TWO_WON_FIVE", 0);
         int gdf = mPreferences.getInt("MULTI_GAMES_DRAW_FIVE", 0);
 
-        games_won_five.setText(getString(R.string.player_one_win) + " " + gwf);
-        games_lost_five.setText(getString(R.string.player_two_win) + " " + glf);
-        games_draw_five.setText(getString(R.string.multi_draw) + " " + gdf);
+        games_won_five.setText(getString(R.string.player_one_win) + getString(R.string.blank) + gwf);
+        games_lost_five.setText(getString(R.string.player_two_win) + getString(R.string.blank) + glf);
+        games_draw_five.setText(getString(R.string.multi_draw) + getString(R.string.blank) + gdf);
     }
 
     public void setTotal(){
@@ -99,7 +98,7 @@ public class StatsMultiplayerActivity extends AppCompatActivity {
         int gpf = mPreferences.getInt("MULTI_GAMES_PLAYED_FIVE", 0);
         int gamesPlayed = (gpt + gpf);
         mEditor.putInt("TOTAL_MULTI_GAMES_PLAYED", gamesPlayed);
-        games_played.setText(getString(R.string.games_played) + " " + gamesPlayed);
+        games_played.setText(getString(R.string.games_played) + getString(R.string.blank) + gamesPlayed);
         mEditor.apply();
     }
 

@@ -17,8 +17,6 @@ import android.widget.TextView;
  */
 public class PageFourHelpFragment extends Fragment {
 
-    private TextView prev, done;
-
     public PageFourHelpFragment() {
         // Required empty public constructor
     }
@@ -34,8 +32,8 @@ public class PageFourHelpFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        prev = view.findViewById(R.id.back);
-        done = view.findViewById(R.id.next);
+        TextView prev = view.findViewById(R.id.back);
+        TextView done = view.findViewById(R.id.next);
 
         prev.setOnClickListener(new View.OnClickListener(){
             @Override

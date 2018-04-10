@@ -15,8 +15,6 @@ import java.util.Random;
 
 public class ThreeBoardActivity extends AppCompatActivity{
 
-    private TextView back;
-    private View decorView;
     private Button [][] b;
     private int [][] c;
     private boolean playerToken;
@@ -32,7 +30,7 @@ public class ThreeBoardActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_three_board);
 
-        back = findViewById(R.id.back);
+        TextView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -45,7 +43,7 @@ public class ThreeBoardActivity extends AppCompatActivity{
         mPreferences = getSharedPreferences(GAME_SCORES, 0);
         mEditor = mPreferences.edit();
 
-        decorView = getWindow().getDecorView();
+        View decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
@@ -104,19 +102,19 @@ public class ThreeBoardActivity extends AppCompatActivity{
         c = new int[4][4];
 
 
-        b[1][3] = (Button) findViewById(R.id.r0c0);
-        b[1][2] = (Button) findViewById(R.id.r0c1);
-        b[1][1] = (Button) findViewById(R.id.r0c2);
+        b[1][3] = findViewById(R.id.r0c0);
+        b[1][2] = findViewById(R.id.r0c1);
+        b[1][1] = findViewById(R.id.r0c2);
 
 
-        b[2][3] = (Button) findViewById(R.id.r1c0);
-        b[2][2] = (Button) findViewById(R.id.r1c1);
-        b[2][1] = (Button) findViewById(R.id.r1c2);
+        b[2][3] = findViewById(R.id.r1c0);
+        b[2][2] = findViewById(R.id.r1c1);
+        b[2][1] = findViewById(R.id.r1c2);
 
 
-        b[3][3] = (Button) findViewById(R.id.r2c0);
-        b[3][2] = (Button) findViewById(R.id.r2c1);
-        b[3][1] = (Button) findViewById(R.id.r2c2);
+        b[3][3] = findViewById(R.id.r2c0);
+        b[3][2] = findViewById(R.id.r2c1);
+        b[3][1] = findViewById(R.id.r2c2);
 
         for (i = 1; i <= 3; i++) {
             for (j = 1; j <= 3; j++)
@@ -144,7 +142,7 @@ public class ThreeBoardActivity extends AppCompatActivity{
         int y;
 
 
-        public MyClickListener(int x, int y) {
+        private MyClickListener(int x, int y) {
             this.x = x;
             this.y = y;
         }
@@ -153,10 +151,10 @@ public class ThreeBoardActivity extends AppCompatActivity{
         public void onClick(View view) {
             if (b[x][y].isEnabled()) {
                 b[x][y].setEnabled(false);
-                if(playerToken == false){
+                if(!playerToken){
                     b[x][y].setTextColor(Color.parseColor("#673ab7"));
                     b[x][y].setText(R.string.letter_o);}
-                if(playerToken == true){
+                if(playerToken){
                     b[x][y].setTextColor(Color.parseColor("#673ab7"));
                     b[x][y].setText(R.string.letter_x);
                 }
@@ -231,10 +229,10 @@ public class ThreeBoardActivity extends AppCompatActivity{
 
         private void markSquare(int x, int y) {
             b[x][y].setEnabled(false);
-            if(playerToken == false){
+            if(!playerToken){
                 b[x][y].setTextColor(Color.parseColor("#ffffff"));
                 b[x][y].setText(R.string.letter_x);}
-            if(playerToken == true){
+            if(playerToken){
                 b[x][y].setTextColor(Color.parseColor("#ffffff"));
                 b[x][y].setText(R.string.letter_o);
             }

@@ -17,8 +17,6 @@ import static com.example.android.tictactoe.ThreeBoardActivity.GAME_SCORES;
 
 public class FiveBoardActivity extends AppCompatActivity {
 
-    private TextView back;
-    private View decorView;
     private Button[][] b;
     private int [][] c;
     private boolean playerToken;
@@ -33,7 +31,7 @@ public class FiveBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_five_board);
 
-        back = findViewById(R.id.back);
+        TextView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -43,7 +41,7 @@ public class FiveBoardActivity extends AppCompatActivity {
             }
         });
 
-        decorView = getWindow().getDecorView();
+        View decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
@@ -104,35 +102,35 @@ public class FiveBoardActivity extends AppCompatActivity {
         c = new int[6][6];
 
         //Row 1
-        b[1][1] = (Button) findViewById(R.id.r1c1);
-        b[1][2] = (Button) findViewById(R.id.r1c2);
-        b[1][3] = (Button) findViewById(R.id.r1c3);
-        b[1][4] = (Button) findViewById(R.id.r1c4);
-        b[1][5] = (Button) findViewById(R.id.r1c5);
+        b[1][1] = findViewById(R.id.r1c1);
+        b[1][2] = findViewById(R.id.r1c2);
+        b[1][3] = findViewById(R.id.r1c3);
+        b[1][4] = findViewById(R.id.r1c4);
+        b[1][5] = findViewById(R.id.r1c5);
         //Row 2
-        b[2][1] = (Button) findViewById(R.id.r2c1);
-        b[2][2] = (Button) findViewById(R.id.r2c2);
-        b[2][3] = (Button) findViewById(R.id.r2c3);
-        b[2][4] = (Button) findViewById(R.id.r2c4);
-        b[2][5] = (Button) findViewById(R.id.r2c5);
+        b[2][1] = findViewById(R.id.r2c1);
+        b[2][2] = findViewById(R.id.r2c2);
+        b[2][3] = findViewById(R.id.r2c3);
+        b[2][4] = findViewById(R.id.r2c4);
+        b[2][5] = findViewById(R.id.r2c5);
         //Row 3
-        b[3][1] = (Button) findViewById(R.id.r3c1);
-        b[3][2] = (Button) findViewById(R.id.r3c2);
-        b[3][3] = (Button) findViewById(R.id.r3c3);
-        b[3][4] = (Button) findViewById(R.id.r3c4);
-        b[3][5] = (Button) findViewById(R.id.r3c5);
+        b[3][1] = findViewById(R.id.r3c1);
+        b[3][2] = findViewById(R.id.r3c2);
+        b[3][3] = findViewById(R.id.r3c3);
+        b[3][4] = findViewById(R.id.r3c4);
+        b[3][5] = findViewById(R.id.r3c5);
         //Row 4
-        b[4][1] = (Button) findViewById(R.id.r4c1);
-        b[4][2] = (Button) findViewById(R.id.r4c2);
-        b[4][3] = (Button) findViewById(R.id.r4c3);
-        b[4][4] = (Button) findViewById(R.id.r4c4);
-        b[4][5] = (Button) findViewById(R.id.r4c5);
+        b[4][1] = findViewById(R.id.r4c1);
+        b[4][2] = findViewById(R.id.r4c2);
+        b[4][3] = findViewById(R.id.r4c3);
+        b[4][4] = findViewById(R.id.r4c4);
+        b[4][5] = findViewById(R.id.r4c5);
         //Row 5
-        b[5][1] = (Button) findViewById(R.id.r5c1);
-        b[5][2] = (Button) findViewById(R.id.r5c2);
-        b[5][3] = (Button) findViewById(R.id.r5c3);
-        b[5][4] = (Button) findViewById(R.id.r5c4);
-        b[5][5] = (Button) findViewById(R.id.r5c5);
+        b[5][1] = findViewById(R.id.r5c1);
+        b[5][2] = findViewById(R.id.r5c2);
+        b[5][3] = findViewById(R.id.r5c3);
+        b[5][4] = findViewById(R.id.r5c4);
+        b[5][5] = findViewById(R.id.r5c5);
 
         for (i = 1; i < 6; i++) {
             for (j = 1; j < 6; j++)
@@ -160,7 +158,7 @@ public class FiveBoardActivity extends AppCompatActivity {
         int y;
 
 
-        public MyClickListener(int x, int y) {
+        private MyClickListener(int x, int y) {
             this.x = x;
             this.y = y;
         }
@@ -169,11 +167,11 @@ public class FiveBoardActivity extends AppCompatActivity {
         public void onClick(View view) {
             if (b[x][y].isEnabled()) {
                 b[x][y].setEnabled(false);
-                if(playerToken == false) {
+                if(!playerToken) {
                     b[x][y].setTextColor(Color.parseColor("#673ab7"));
                     b[x][y].setText(R.string.letter_o);
                 }
-                if(playerToken == true){
+                if(playerToken){
                     b[x][y].setTextColor(Color.parseColor("#673ab7"));
                     b[x][y].setText(R.string.letter_x);
 
@@ -311,10 +309,10 @@ public class FiveBoardActivity extends AppCompatActivity {
 
         private void markSquare(int x, int y) {
             b[x][y].setEnabled(false);
-            if(playerToken == false){
+            if(!playerToken){
                 b[x][y].setTextColor(Color.parseColor("#ffffff"));
                 b[x][y].setText(R.string.letter_x);}
-            if(playerToken == true){
+            if(playerToken){
                 b[x][y].setTextColor(Color.parseColor("#ffffff"));
                 b[x][y].setText(R.string.letter_o);
             }

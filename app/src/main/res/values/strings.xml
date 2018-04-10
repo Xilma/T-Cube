@@ -1,4 +1,4 @@
-<resources xmlns:android="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">TicTacToe</string>
     <string name="app_title">Tic-Tac-Toe</string>
 
@@ -40,7 +40,7 @@
     <string name="play_more">Play More</string>
     <string name="letter_o">O</string>
     <string name="letter_x">X</string>
-    <string name="blank"></string>
+    <string name="blank"> </string>
     <string name="message">Choose your token!</string>
 
     <!--Help-->
@@ -63,5 +63,8 @@
     <string name="r_player_one_win">Player 1 Won: 0</string>
     <string name="r_player_two_win">Player 2 Won: 0</string>
     <string name="r_multi_draw">Draw: 0</string>
+    <string name="purple_background">purple_background</string>
+    <string name="menu_background">Menu background</string>
+    <string name="app_icon">app logo</string>
 
 </resources>

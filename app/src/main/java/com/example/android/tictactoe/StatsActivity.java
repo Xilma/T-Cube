@@ -11,9 +11,7 @@ import static com.example.android.tictactoe.ThreeBoardActivity.GAME_SCORES;
 
 public class StatsActivity extends AppCompatActivity {
 
-    private TextView back_button, games_played, next_button;
-    private TextView games_won_three, games_lost_three, games_draw_three, games_won_five, games_lost_five, games_draw_five;
-    private View decorView;
+    private TextView games_played, games_won_three, games_lost_three, games_draw_three, games_won_five, games_lost_five, games_draw_five;
     private SharedPreferences mPreferences;
     private SharedPreferences.Editor mEditor;
 
@@ -22,8 +20,9 @@ public class StatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
 
-        back_button = findViewById(R.id.back);
-        next_button = findViewById(R.id.next);
+        TextView back_button = findViewById(R.id.back);
+        TextView next_button = findViewById(R.id.next);
+
         games_played = findViewById(R.id.games_played);
         games_won_three = findViewById(R.id.games_won_three);
         games_lost_three = findViewById(R.id.games_lost_three);
@@ -50,7 +49,7 @@ public class StatsActivity extends AppCompatActivity {
             }
         });
 
-        decorView = getWindow().getDecorView();
+        View decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
@@ -90,9 +89,9 @@ public class StatsActivity extends AppCompatActivity {
         int gl = mPreferences.getInt("GAMES_LOST_THREE", 0);
         int gd = mPreferences.getInt("GAMES_DRAW_THREE", 0);
 
-        games_won_three.setText(getString(R.string.games_won) + " " + gw);
-        games_lost_three.setText(getString(R.string.games_lost) + " " + gl);
-        games_draw_three.setText(getString(R.string.games_draw) + " " + gd);
+        games_won_three.setText(getString(R.string.games_won) + getString(R.string.blank) + gw);
+        games_lost_three.setText(getString(R.string.games_lost) + getString(R.string.blank) + gl);
+        games_draw_three.setText(getString(R.string.games_draw) + getString(R.string.blank) + gd);
     }
 
     public void setScoresFive(){
@@ -100,9 +99,9 @@ public class StatsActivity extends AppCompatActivity {
         int glf = mPreferences.getInt("GAMES_LOST_FIVE", 0);
         int gdf = mPreferences.getInt("GAMES_DRAW_FIVE", 0);
 
-        games_won_five.setText(getString(R.string.games_won) + " " + gwf);
-        games_lost_five.setText(getString(R.string.games_lost) + " " + glf);
-        games_draw_five.setText(getString(R.string.games_draw) + " " + gdf);
+        games_won_five.setText(getString(R.string.games_won) + getString(R.string.blank) + gwf);
+        games_lost_five.setText(getString(R.string.games_lost) + getString(R.string.blank) + glf);
+        games_draw_five.setText(getString(R.string.games_draw) + getString(R.string.blank)+ gdf);
     }
 
     public void setTotal(){
@@ -110,7 +109,7 @@ public class StatsActivity extends AppCompatActivity {
         int gpf = mPreferences.getInt("GAMES_PLAYED_FIVE", 0);
         int gamesPlayed = (gpt + gpf);
         mEditor.putInt("TOTAL_GAMES_PLAYED", gamesPlayed);
-        games_played.setText(getString(R.string.games_played) + " " + gamesPlayed);
+        games_played.setText(getString(R.string.games_played) + getString(R.string.blank) + gamesPlayed);
         mEditor.apply();
     }
 

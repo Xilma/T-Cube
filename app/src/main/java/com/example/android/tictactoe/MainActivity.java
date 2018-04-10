@@ -7,8 +7,6 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private View decorView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.menu_options, new MainMenuFragment());
         ft.commit();
 
-        decorView = getWindow().getDecorView();
+        View decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);

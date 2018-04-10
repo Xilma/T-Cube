@@ -16,8 +16,6 @@ import android.widget.TextView;
  */
 public class ChooseOptionFragment extends Fragment {
 
-    private TextView three, five;
-
     public ChooseOptionFragment() {
         // Required empty public constructor
     }
@@ -33,6 +31,8 @@ public class ChooseOptionFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        TextView three, five;
 
         three = view.findViewById(R.id.three);
         five = view.findViewById(R.id.five);

@@ -8,13 +8,12 @@ import android.view.View;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private View decorView;
-    private static int SPLASH_TIME_OUT = 4000;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        final int SPLASH_TIME_OUT = 4000;
 
         new Handler().postDelayed(new Runnable(){
             @Override
@@ -25,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         },SPLASH_TIME_OUT);
 
-        decorView = getWindow().getDecorView();
+        View decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);

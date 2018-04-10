@@ -16,8 +16,6 @@ import android.widget.TextView;
  */
 public class PageThreeHelpFragment extends Fragment {
 
-    private TextView back, next;
-
     public PageThreeHelpFragment() {
         // Required empty public constructor
     }
@@ -33,8 +31,8 @@ public class PageThreeHelpFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        back = view.findViewById(R.id.back);
-        next = view.findViewById(R.id.next);
+        TextView back = view.findViewById(R.id.back);
+        TextView next = view.findViewById(R.id.next);
 
         back.setOnClickListener(new View.OnClickListener(){
             @Override

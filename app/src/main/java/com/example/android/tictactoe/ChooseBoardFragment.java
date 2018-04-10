@@ -16,8 +16,6 @@ import android.widget.TextView;
  */
 public class ChooseBoardFragment extends Fragment {
 
-    private TextView three, five;
-
     public ChooseBoardFragment() {
         // Required empty public constructor
     }
@@ -34,6 +32,8 @@ public class ChooseBoardFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        TextView three, five;
 
         three = view.findViewById(R.id.three);
         five = view.findViewById(R.id.five);

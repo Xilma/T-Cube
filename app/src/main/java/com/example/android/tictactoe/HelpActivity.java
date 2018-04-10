@@ -7,8 +7,6 @@ import android.view.View;
 
 public class HelpActivity extends AppCompatActivity {
 
-    private View decorView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +16,7 @@ public class HelpActivity extends AppCompatActivity {
         ft.replace(R.id.help_container, new PageOneHelpFragment());
         ft.commit();
 
-        decorView = getWindow().getDecorView();
+        View decorView = getWindow().getDecorView();
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);

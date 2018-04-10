@@ -36,7 +36,6 @@
             android:textAlignment="center"
             android:textColor="@color/text"
             android:layout_centerHorizontal="true"
-            android:textAllCaps="true"
             android:layout_marginBottom="30dp"
             android:clickable="true"/>
 
@@ -51,7 +50,6 @@
             android:text="Human"
             android:textColor="@color/text"
             android:layout_centerHorizontal="true"
-            android:textAllCaps="true"
             android:layout_marginBottom="30dp"
             android:clickable="true"/>
 

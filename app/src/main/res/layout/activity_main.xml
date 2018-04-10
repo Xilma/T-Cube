@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/lavender_fur_texture"
+        android:contentDescription="@string/purple_background"
         android:scaleType="centerCrop"/>
 
     <TextView
@@ -31,7 +32,7 @@
         android:layout_below="@id/title"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="70dp"
-        android:layout_marginLeft="150dp"
+        android:layout_marginStart="150dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
@@ -41,7 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/purple_texture_bg"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/menu_background"/>
 
     </FrameLayout>
 
