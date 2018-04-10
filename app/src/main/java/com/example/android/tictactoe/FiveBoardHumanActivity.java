@@ -222,8 +222,8 @@ public class FiveBoardHumanActivity extends AppCompatActivity {
                 || (c[1][4] == 0 && c[2][4] == 0 && c[3][4] == 0 && c[4][4] == 0 && c[5][4] == 0)
                 || (c[1][5] == 0 && c[2][5] == 0 && c[3][5] == 0 && c[4][5] == 0 && c[5][5] == 0)) {
             Toast.makeText(getApplicationContext(), "Game over. Player 1 wins!", Toast.LENGTH_LONG).show();
-            //gameWin();
-            //gamePlayed();
+            gameWin();
+            gamePlayed();
             gameOver = true;
             disableButtons();
         } else if ((c[1][1] == 1 && c[2][2] == 1 && c[3][3] == 1 && c[4][4] == 1 && c[5][5] == 1)
@@ -239,8 +239,8 @@ public class FiveBoardHumanActivity extends AppCompatActivity {
                 || (c[1][4] == 1 && c[2][4] == 1 && c[3][4] == 1 && c[4][4] == 1 && c[5][4] == 1)
                 || (c[1][5] == 1 && c[2][5] == 1 && c[3][5] == 1 && c[4][5] == 1 && c[5][5] == 1)) {
             Toast.makeText(getApplicationContext(), "Game over. Player 2 wins!", Toast.LENGTH_LONG).show();
-            //gameLost();
-            //gamePlayed();
+            gameLost();
+            gamePlayed();
             gameOver = true;
             disableButtons();
         } else {
@@ -256,8 +256,8 @@ public class FiveBoardHumanActivity extends AppCompatActivity {
             if(!empty) {
                 gameOver = true;
                 Toast.makeText(getApplicationContext(), "Game over. It's a draw!", Toast.LENGTH_LONG).show();
-                //gameDraw();
-                //gamePlayed();
+                gameDraw();
+                gamePlayed();
                 disableButtons();
             }
         }
@@ -272,42 +272,42 @@ public class FiveBoardHumanActivity extends AppCompatActivity {
         }
     }
 
-    /*public void gameWin(){
-        if(mPreferences.contains("GAMES_WON_FIVE")) {
-            int gw = mPreferences.getInt("GAMES_WON_FIVE", 0);
+    public void gameWin(){
+        if(mPreferences.contains("PLAYER_ONE_WON_FIVE")) {
+            int gw = mPreferences.getInt("PLAYER_ONE_WON_FIVE", 0);
             gamesWon = gw + 1;
-            mEditor.putInt("GAMES_WON_FIVE", gamesWon);
+            mEditor.putInt("PLAYER_ONE_WON_FIVE", gamesWon);
             mEditor.apply();
         }
     }
 
     public void gameLost(){
-        if(mPreferences.contains("GAMES_LOST_FIVE")) {
-            int gl = mPreferences.getInt("GAMES_LOST_FIVE", 0);
+        if(mPreferences.contains("PLAYER_TWO_WON_FIVE")) {
+            int gl = mPreferences.getInt("PLAYER_TWO_WON_FIVE", 0);
             gamesLost = gl + 1;
-            mEditor.putInt("GAMES_LOST_FIVE", gamesLost);
+            mEditor.putInt("PLAYER_TWO_WON_FIVE", gamesLost);
             mEditor.apply();
         }
     }
 
     public void gameDraw(){
-        if(mPreferences.contains("GAMES_DRAW_FIVE")) {
-            int gd = mPreferences.getInt("GAMES_DRAW_FIVE", 0);
+        if(mPreferences.contains("MULTI_GAMES_DRAW_FIVE")) {
+            int gd = mPreferences.getInt("MULTI_GAMES_DRAW_FIVE", 0);
             gamesDraw = gd + 1;
-            mEditor.putInt("GAMES_DRAW_FIVE", gamesDraw);
+            mEditor.putInt("MULTI_GAMES_DRAW_FIVE", gamesDraw);
             mEditor.apply();
         }
     }
 
     public void gamePlayed(){
-        if(mPreferences.contains("GAMES_PLAYED_FIVE")) {
-            int gw = mPreferences.getInt("GAMES_WON_FIVE", 0);
-            int gl = mPreferences.getInt("GAMES_LOST_FIVE", 0);
-            int gd = mPreferences.getInt("GAMES_DRAW_FIVE", 0);
+        if(mPreferences.contains("MULTI_GAMES_PLAYED_FIVE")) {
+            int gw = mPreferences.getInt("PLAYER_ONE_WON_FIVE", 0);
+            int gl = mPreferences.getInt("PLAYER_TWO_WON_FIVE", 0);
+            int gd = mPreferences.getInt("MULTI_GAMES_DRAW_FIVE", 0);
             gamesPlayed = (gw + gl + gd);
-            mEditor.putInt("GAMES_PLAYED_FIVE", gamesPlayed);
+            mEditor.putInt("MULTI_GAMES_PLAYED_FIVE", gamesPlayed);
             mEditor.apply();
         }
-    }*/
+    }
 }
 

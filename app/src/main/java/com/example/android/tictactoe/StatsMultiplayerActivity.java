@@ -48,7 +48,7 @@ public class StatsMultiplayerActivity extends AppCompatActivity {
         mEditor = mPreferences.edit();
 
         setScoresThree();
-        //setScoresFive();
+        setScoresFive();
         setTotal();
     }
 
@@ -66,6 +66,10 @@ public class StatsMultiplayerActivity extends AppCompatActivity {
         mEditor.putInt("PLAYER_ONE_WON", 0);
         mEditor.putInt("PLAYER_TWO_WON", 0);
         mEditor.putInt("MULTI_GAMES_DRAW", 0);
+        mEditor.putInt("MULTI_GAMES_PLAYED_FIVE", 0);
+        mEditor.putInt("PLAYER_ONE_WON_FIVE", 0);
+        mEditor.putInt("PLAYER_TWO_WON_FIVE", 0);
+        mEditor.putInt("MULTI_GAMES_DRAW_FIVE", 0);
 
         mEditor.apply();
     }
@@ -80,20 +84,20 @@ public class StatsMultiplayerActivity extends AppCompatActivity {
         games_draw_three.setText(getString(R.string.multi_draw) + " " + gd);
     }
 
-    /*public void setScoresFive(){
-        int gwf = mPreferences.getInt("GAMES_WON_FIVE", 0);
-        int glf = mPreferences.getInt("GAMES_LOST_FIVE", 0);
-        int gdf = mPreferences.getInt("GAMES_DRAW_FIVE", 0);
+    public void setScoresFive(){
+        int gwf = mPreferences.getInt("PLAYER_ONE_WON_FIVE", 0);
+        int glf = mPreferences.getInt("PLAYER_TWO_WON_FIVE", 0);
+        int gdf = mPreferences.getInt("MULTI_GAMES_DRAW_FIVE", 0);
 
-        games_won_five.setText(getString(R.string.games_won) + " " + gwf);
-        games_lost_five.setText(getString(R.string.games_lost) + " " + glf);
-        games_draw_five.setText(getString(R.string.games_draw) + " " + gdf);
-    }*/
+        games_won_five.setText(getString(R.string.player_one_win) + " " + gwf);
+        games_lost_five.setText(getString(R.string.player_two_win) + " " + glf);
+        games_draw_five.setText(getString(R.string.multi_draw) + " " + gdf);
+    }
 
     public void setTotal(){
         int gpt = mPreferences.getInt("MULTI_GAMES_PLAYED", 0);
-        //int gpf = mPreferences.getInt("GAMES_PLAYED_FIVE", 0);
-        int gamesPlayed = (gpt);
+        int gpf = mPreferences.getInt("MULTI_GAMES_PLAYED_FIVE", 0);
+        int gamesPlayed = (gpt + gpf);
         mEditor.putInt("TOTAL_MULTI_GAMES_PLAYED", gamesPlayed);
         games_played.setText(getString(R.string.games_played) + " " + gamesPlayed);
         mEditor.apply();
