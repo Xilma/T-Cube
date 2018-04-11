@@ -16,7 +16,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            tools:ignore="UselessParent">
 
             <TextView
                 android:id="@+id/back"
@@ -45,7 +46,8 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            tools:ignore="NestedWeights">
 
             <Button
                 android:id="@+id/r1c1"
@@ -114,7 +116,8 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            tools:ignore="NestedWeights">
 
             <Button
                 android:id="@+id/r2c1"
@@ -183,7 +186,8 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            tools:ignore="NestedWeights">
 
             <Button
                 android:id="@+id/r3c1"
@@ -252,7 +256,8 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            tools:ignore="NestedWeights">
 
             <Button
                 android:id="@+id/r4c1"
@@ -322,7 +327,8 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="5"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            tools:ignore="NestedWeights">
 
             <Button
                 android:id="@+id/r5c1"

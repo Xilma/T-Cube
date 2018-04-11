@@ -1,5 +1,6 @@
 package com.example.android.tictactoe;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -55,6 +56,7 @@ public class ThreeBoardActivity extends AppCompatActivity{
 
     public void chooseToken(){
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        @SuppressLint("InflateParams")
         View mView = getLayoutInflater().inflate(R.layout.dialog_choose_token, null);
         Button letterX = mView.findViewById(R.id.lx);
         Button letterO = mView.findViewById(R.id.lo);

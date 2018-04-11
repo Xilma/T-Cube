@@ -16,7 +16,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            tools:ignore="UselessParent">
 
             <TextView
                 android:id="@+id/back"
@@ -51,6 +52,7 @@
                 android:id="@+id/r1c1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                tools:ignore="NestedWeights"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@color/board"
@@ -120,6 +122,7 @@
                 android:id="@+id/r2c1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                tools:ignore="NestedWeights"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@color/board"
@@ -189,6 +192,7 @@
                 android:id="@+id/r3c1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                tools:ignore="NestedWeights"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@color/board"
@@ -258,6 +262,7 @@
                 android:id="@+id/r4c1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                tools:ignore="NestedWeights"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@color/board"
@@ -328,6 +333,7 @@
                 android:id="@+id/r5c1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                tools:ignore="NestedWeights"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:background="@color/board"
