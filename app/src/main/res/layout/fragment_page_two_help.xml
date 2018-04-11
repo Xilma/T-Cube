@@ -9,57 +9,56 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/back"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="horizontal">
+            android:drawableLeft="@drawable/back_button"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:text="  Prev"
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true"/>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:text="@string/pageTwo"
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true"/>
 
-                <TextView
-                    android:id="@+id/back"
-                    android:layout_alignParentLeft="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/back_button"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textStyle="bold"
-                    android:text="  Prev"
-                    android:textColor="@color/colorAccent"
-                    android:clickable="true"/>
+        <TextView
+            android:id="@+id/next"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/next_button"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:text="Next  "
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true"/>
 
-                <TextView
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textStyle="bold"
-                    android:text="@string/pageTwo"
-                    android:textColor="@color/colorAccent"
-                    android:clickable="true"/>
-
-                <TextView
-                    android:id="@+id/next"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/next_button"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textStyle="bold"
-                    android:text="Next  "
-                    android:textColor="@color/colorAccent"
-                    android:clickable="true"/>
-            </RelativeLayout>
-
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/help_two_image"
+            android:layout_width="wrap_content"
+            android:layout_height="550dp"
+            android:layout_below="@id/back"
+            android:layout_marginTop="30dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/help"
+            android:src="@drawable/help_page_two"/>
 
     </RelativeLayout>
-
-
 </ScrollView>

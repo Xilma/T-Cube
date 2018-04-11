@@ -9,55 +9,75 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/back"
+            android:layout_alignParentStart="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/back_button"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:text="  Back"
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:text="@string/pageOne"
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/next"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/next_button"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:text="Next  "
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <ImageView
+            android:id="@+id/help_one_image"
+            android:layout_width="wrap_content"
+            android:layout_height="450dp"
+            android:layout_below="@id/back"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/help"
+            android:src="@drawable/help_page_one"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/hand_touch"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_below="@id/help_one_image"
+            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-
-                <TextView
-                    android:id="@+id/back"
-                    android:layout_alignParentLeft="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/back_button"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textStyle="bold"
-                    android:text="  Back"
-                    android:textColor="@color/colorAccent"
-                    android:clickable="true"/>
-
-                <TextView
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textStyle="bold"
-                    android:text="@string/pageOne"
-                    android:textColor="@color/colorAccent"
-                    android:clickable="true"/>
-
-                <TextView
-                    android:id="@+id/next"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/next_button"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textStyle="bold"
-                    android:text="Next  "
-                    android:textColor="@color/colorAccent"
-                    android:clickable="true"/>
-            </RelativeLayout>
-
-        </LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="@string/help_page_one_message"
+            android:textColor="@color/menu_title"/>
 
     </RelativeLayout>
 

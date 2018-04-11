@@ -66,5 +66,7 @@
     <string name="purple_background">purple_background</string>
     <string name="menu_background">Menu background</string>
     <string name="app_icon">app logo</string>
+    <string name="help_page_one_message">Touch an empty slot to input \'X\' or \'O\'</string>
+    <string name="help_page_three_message">Three marks in a row or column makes a win!</string>
 
 </resources>
