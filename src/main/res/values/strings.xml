@@ -1,0 +1,65 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">TicTacToe</string>
+    <string name="app_title">Tic-Tac-Toe</string>
+
+    <!--Main menu -->
+    <string name="play">Play</string>
+    <string name="stats">Stats</string>
+    <string name="help">Help</string>
+    <string name="prompt_board">Choose your board</string>
+    <string name="choose_token">Choose your token</string>
+    <string name="three">3 X 3</string>
+    <string name="five">5 X 5</string>
+    <string name="computer">Computer</string>
+    <string name="human">Human</string>
+
+    <!--Stats-->
+    <string name="games_played">Games Played: </string>
+    <string name="games_won">Games Won: </string>
+    <string name="games_lost">Games Lost: </string>
+    <string name="games_draw">Games Draw: </string>
+    <string name="reset_score">Reset Scores</string>
+
+    <!--Reset option-->
+    <string name="r_games_played">Games Played: 0</string>
+    <string name="r_games_won">Games Won: 0</string>
+    <string name="r_games_lost">Games Lost: 0</string>
+    <string name="r_games_draw">Games Draw: 0</string>
+
+    <!--Game Actions-->
+    <string name="reset">Reset Board</string>
+    <string name="letter_o">O</string>
+    <string name="letter_x">X</string>
+    <string name="blank"> </string>
+    <string name="message">Choose your token!</string>
+
+    <!--Help-->
+    <string name="pageOne" tools:ignore="TypographyFractions">Help 1/4</string>
+    <string name="pageTwo" tools:ignore="TypographyFractions">Help 2/4</string>
+    <string name="pageThree" tools:ignore="TypographyFractions">Help 3/4</string>
+    <string name="pageFour" tools:ignore="TypographyFractions">Help 4/4</string>
+
+    <string name="info_one">A Win: \n\n When one player has placed three tokens in a horizontal,
+        vertical or diagonal row on the grid.</string>
+    <string name="info_two">A Draw: \n\n Neither player achieves a win and all cells in the grid are filled.</string>
+
+    <string name="stats_single_player">Single Player</string>
+    <string name="stats_multiplayer">Multiplayer</string>
+    <string name="player_one_win">Player 1 Won:</string>
+    <string name="player_two_win">Player 2 Won:</string>
+    <string name="multi_draw">Draw:</string>
+
+    <!--Reset option multiplayer-->
+    <string name="r_player_one_win">Player 1 Won: 0</string>
+    <string name="r_player_two_win">Player 2 Won: 0</string>
+    <string name="r_multi_draw">Draw: 0</string>
+    <string name="purple_background">purple_background</string>
+    <string name="menu_background">Menu background</string>
+    <string name="app_icon">app logo</string>
+    <string name="help_page_one_message">Touch an empty slot to input \'X\' or \'O\'</string>
+    <string name="help_page_three_message">Three marks in a row or column makes a win!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
